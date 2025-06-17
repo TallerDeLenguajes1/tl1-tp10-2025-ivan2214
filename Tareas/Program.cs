@@ -1,2 +1,37 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using Tareas.services;
+using Tareas.models;
+
+List<Tarea> tareas;
+tareas = await TareaService.GetTareas();
+
+
+List<Tarea> tareasPendientes = new List<Tarea>();
+List<Tarea> tareasCompletadas = new List<Tarea>();
+
+foreach (Tarea tarea in tareas)
+{
+  if (tarea.completed)
+  {
+    tareasCompletadas.Add(tarea);
+
+  }
+  else
+  {
+    tareasPendientes.Add(tarea);
+
+  }
+}
+
+foreach (Tarea tarea in tareasPendientes)
+{
+  Console.WriteLine($"Tarea: {tarea.title} - Estado: Pendiente");
+}
+
+foreach (Tarea tarea in tareasCompletadas)
+{
+  Console.WriteLine($"Tarea: {tarea.title} - Estado: Completada");
+}
+
+
+
