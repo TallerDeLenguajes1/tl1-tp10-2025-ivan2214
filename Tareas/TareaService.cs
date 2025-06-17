@@ -6,7 +6,7 @@ namespace Tareas.services;
 
 public class TareaService
 {
-  /* https://jsonplaceholder.typicode.com/todos/ */
+
 
   public static HttpClient client = new HttpClient();
   public static string url = "https://jsonplaceholder.typicode.com/todos";
@@ -21,11 +21,8 @@ public class TareaService
     return tareas;
   }
 
-  /* A la lista completa de tareas y serialízala nuevamente a formato JSON y guarda el
-resultado en un archivo llamado tareas.json en el directorio de ejecución de la
-aplicación. */
 
-  public static void SaveTareas(List<Tarea> tareas)
+  public static void GuardarTareas(List<Tarea> tareas)
   {
     string json = JsonSerializer.Serialize(tareas);
     File.WriteAllText("tareas.json", json);

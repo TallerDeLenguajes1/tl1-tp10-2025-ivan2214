@@ -40,4 +40,4 @@ foreach (Tarea tarea in tareasCompletadas)
 
 /* guardar las tareas en un json */
 
-TareaService.SaveTareas(tareas);
+TareaService.GuardarTareas(tareas);
