@@ -2,10 +2,13 @@
 using Tareas.services;
 using Tareas.models;
 
-List<Tarea> tareas;
-tareas = await TareaService.GetTareas();
 
 
+/* obtener las tareas de la api */
+List<Tarea> tareas = await TareaService.GetTareas();
+
+
+/* Filtrar las tareas */
 List<Tarea> tareasPendientes = new List<Tarea>();
 List<Tarea> tareasCompletadas = new List<Tarea>();
 
@@ -35,3 +38,6 @@ foreach (Tarea tarea in tareasCompletadas)
 
 
 
+/* guardar las tareas en un json */
+
+TareaService.SaveTareas(tareas);
